@@ -1,0 +1,64 @@
+body{
+	padding-top: 5%;
+}
+
+h3 {
+	padding-left: 11%;
+	display: inline-block;
+}
+
+.table {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+
+.add-button {
+	text-align: center;
+}
+
+.buttons {
+	text-align: right;
+	padding-right: 10%;
+}
+
+.line1{
+	margin-left: 2%;
+	margin-bottom: 2%;
+}
+
+.line2, .line3, .line5, .line6 {
+	display: inline-block;
+	margin: 1%;
+	margin-left:2%;
+	margin-right:2%;
+}
+
+#bio {
+	resize: none;
+	margin-left: 2%;
+}
+
+#underscore-ajax {
+	margin-left: 2%;
+}
+
+.actions {
+	text-align: right;
+	margin-right: 2%;
+}
+.new-header{
+	text-align: center;
+}
+
+@media (min-width: 992px){
+	.modal-lg
+	{
+    	width: 900px;
+    	height: 900px; /* control height here */
+	}
+}
+
+.modal-body {
+	background-color: #F0F0F0 ;
+}

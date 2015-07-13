@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @account.username %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @account.name %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @account.password %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @account.email %>
+</p>
+
+<p>
+  <strong>Org:</strong>
+  <%= @account.org %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @account.bio %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @account.location %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @account.website %>
+</p>
+
+<p>
+  <strong>Profile img:</strong>
+  <%= @account.profile_img %>
+</p>
+
+<p>
+  <strong>Header img:</strong>
+  <%= @account.header_img %>
+</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

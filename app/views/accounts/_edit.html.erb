@@ -1,0 +1,126 @@
+<div class = "new-header"> EDIT ACCOUNT </div>
+<%= form_for(@account) do |f| %>
+
+  <div class="line1">
+    <%= f.text_field :org, placeholder: "ORGANIZATION" %>
+  </div>
+
+  <div class = "ipaddress line2">
+    <%= f.text_field :ipaddress, placeholder: "IP ADDRESS" %>
+  </div>
+
+  <div class = "dummy line2">
+    <%= f.text_field :dummy, placeholder: "DUMMY USERNAME" %>
+  </div>
+
+  <div class = "password line2">
+    <%= f.text_field :password, placeholder: "PASSWORD" %>
+  </div>
+
+  <div class="email line2">
+    <%= f.text_field :email, placeholder: "EMAIL" %>
+  </div>
+
+  <hr>
+
+  <div class="name line3">
+    <%= f.text_field :name, placeholder: "TWITTER NAME",:input_html => {:maxlength => 15} %>
+  </div>
+  <div class = "username line3">
+  <div class="input-group">
+    <%= f.text_field :username, placeholder: "NEW USERNAME", :id => "username", :class => "form-control"%>
+    <span class="input-group-btn">
+    <button type = "button" id= "ajax-button" class = "btn btn-default btn-primary" >SEARCH</button>
+    </span>
+  </div>
+  </div>
+
+
+  <div class="bio">
+    <%= f.text_area :bio, size: "100x5", placeholder: "TWITTER BIO",:input_html => {:maxlength => 160} %>
+  </div>
+
+  <div class="location line5">
+    <%= f.text_field :location, placeholder: "LOCATION" %>
+  </div>
+  <div class="website line5">
+    <%= f.text_field :website, placeholder: "WEBSITE" %>
+  </div>
+  <br>
+
+  <div class="prof line6">
+    <%= f.label :profile_img %><br>
+    <%= f.text_field :profile_img %>
+  </div>
+  <div class="header line6">
+    <%= f.label :header_img %><br>
+    <%= f.text_field :header_img %>
+  </div>
+  <br>
+  <br>
+  <div class="actions">
+    <%= f.submit 'SUBMIT', :class => "btn btn-primary", :id =>"submit" %>
+  </div>
+<% end %>
+
+<div class = "new-header"> EDITING ACCOUNT </div>
+<%= form_for(@account, :remote => true) do |f| %>
+
+  <div class="line1">
+    <%= f.text_field :org, placeholder: "ORGANIZATION" %>
+  </div>
+
+  <div class = "ipaddress line2">
+    <%= f.text_field :ipaddress, placeholder: "IP ADDRESS" %>
+  </div>
+
+  <div class = "dummy line2">
+    <%= f.text_field :dummy, placeholder: "DUMMY USERNAME" %>
+  </div>
+
+  <div class = "password line2">
+    <%= f.text_field :password, placeholder: "PASSWORD" %>
+  </div>
+
+  <div class="email line2">
+    <%= f.text_field :email, placeholder: "EMAIL" %>
+  </div>
+
+  <hr>
+
+  <div class = "username line3">
+      <%= f.text_field :username, placeholder: "NEW USERNAME"%>
+      <button class="btn btn-xs btn-primary" type="button">Search</button>
+  </div>
+  <div class="name line3">
+    <%= f.text_field :name, placeholder: "TWITTER NAME",:input_html => {:maxlength => 15} %>
+  </div>
+
+
+  <div class="bio">
+    <%= f.text_area :bio, size: "100x5", placeholder: "TWITTER BIO",:input_html => {:maxlength => 160} %>
+  </div>
+
+  <div class="location line5">
+    <%= f.text_field :location, placeholder: "LOCATION" %>
+  </div>
+  <div class="website line5">
+    <%= f.text_field :website, placeholder: "WEBSITE" %>
+  </div>
+  <br>
+
+  <div class="prof line6">
+    <%= f.label :profile_img %><br>
+    <%= f.text_field :profile_img %>
+  </div>
+  <div class="header line6">
+    <%= f.label :header_img %><br>
+    <%= f.text_field :header_img %>
+  </div>
+  <br>
+  <br>
+  <div class="actions">
+    <%= f.submit 'SUBMIT', :class => "btn btn-primary" %>
+  </div>
+<% end %>
+

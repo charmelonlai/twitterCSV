@@ -1,0 +1,5 @@
+<%- headers = ['ip','twitter_login', 'twitter_pass', 'email','twitter_username','twitter_name','bio','location','website','profile image','header image'] -%>
+<%= CSV.generate_line headers %>
+<%- @accounts.each do |account| -%>
+  <%= CSV.generate_line([account.ipaddress,account.username, account.password, account.email, account.username, account.name, account.bio, account.location, account.website, account.profile_img, account.header_img]) %>
+<%- end -%>
