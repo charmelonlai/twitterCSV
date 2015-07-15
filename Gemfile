@@ -24,8 +24,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'twitter'
-gem 'omniauth', '~> 1.2.2'
-gem 'omniauth-twitter'
 gem 'googleajax'
 
 # Use ActiveModel has_secure_password
