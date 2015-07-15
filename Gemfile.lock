@@ -66,6 +66,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    googleajax (1.0.1)
+      json (>= 1.0.0)
     hashie (3.4.2)
     http (0.6.4)
       http_parser.rb (~> 0.6.0)
@@ -185,6 +187,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.5)
   byebug
   coffee-rails (~> 4.1.0)
+  googleajax
   jbuilder (~> 2.0)
   jquery-rails
   omniauth (~> 1.2.2)

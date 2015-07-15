@@ -1,17 +1,12 @@
 body{
-	padding-top: 5%;
+	margin:0;
+   	padding:0;
 }
 
 h3 {
-	padding-left: 11%;
+	margin-left:2%;
 	display: inline-block;
 }
-
-.table {
-	padding-left: 10%;
-	padding-right: 10%;
-}
-
 
 .add-button {
 	text-align: center;
@@ -22,33 +17,29 @@ h3 {
 	padding-right: 10%;
 }
 
-.line1{
-	margin-left: 2%;
-	margin-bottom: 2%;
-}
-
 .line2, .line3, .line5, .line6 {
 	display: inline-block;
 	margin: 1%;
-	margin-left:2%;
-	margin-right:2%;
+	margin-left:1%;
+	margin-right:1%;
 }
 
-#bio {
+.line4 {
+	margin-left:1%;
+	margin-right:1%;
+}
+
+#edit-bio {
 	resize: none;
-	margin-left: 2%;
 }
 
 #underscore-ajax {
-	margin-left: 2%;
+	margin-left: 1%;
 }
 
 .actions {
 	text-align: right;
-	margin-right: 2%;
-}
-.new-header{
-	text-align: center;
+	margin-right: 1%;
 }
 
 @media (min-width: 992px){
@@ -61,4 +52,27 @@ h3 {
 
 .modal-body {
 	background-color: #F0F0F0 ;
+}
+
+.image_li {
+	height: 75px;
+	width: 75px; 
+	margin-bottom: 1px;
+}
+
+div.scrollable {
+    width: 100%;
+    max-height:100px;
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+    white-space:nowrap;
+}
+
+td {
+	max-width: 200px;
+}
+
+table {
+	width: 100%;
 }

@@ -14,6 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require jquery.validationEngine-en
-//= require jquery.validationEngine
 //= require_tree .

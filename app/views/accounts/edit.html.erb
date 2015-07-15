@@ -1,4 +1,4 @@
 <div class = "new-header">Editing Account</div>
 <br>
-<%= render 'form' %>
+<%= render :partial => 'form',:locals => {:account => @account} %>
 <%= link_to 'Back', accounts_path %>

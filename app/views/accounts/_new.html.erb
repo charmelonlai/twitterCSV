@@ -1,74 +1,62 @@
-<div class = "new-header"> ADD NEW ACCOUNT </div>
 
-<%= form_for(Account.new) do |f| %>
+  <%= form_for Account.new, :id => "accountform" do |f| %>
+    <td>
+    </td>
+    <td>
+      <%= f.text_field :ipaddress, :id => "ipaddress",:size => "5", :class => "form-control" %>
+    </td>
+   
+    <td>
+      <%= f.text_field :dummy, :id => "dummy",:size => "10", :class => "form-control" %>
+    </td>
 
-  <div class="line1">
-    <label for="org">Organization</label>
-    <%= f.text_field :org, placeholder: "ORGANIZATION", :id => "org"%>
-  </div>
+    <td>
+      <%= f.text_field :password,:id => "password", :class => "form-control" %>
+    </td>
 
-  <div class = "ipaddress line2">
-    <label for="ipaddress">IP Address</label>
-    <%= f.text_field :ipaddress, placeholder: "IP ADDRESS", :id => "ipaddress", :class => "form-control" %>
-  </div>
+    <td>
+      <%= f.text_field :email, :id => "email", :size => "10", :class => "form-control" %>
+    </td>
 
-   <div class = "dummy line2">
-    <label for="dummy">Username</label>
-    <%= f.text_field :dummy, placeholder: "DUMMY USERNAME", :id => "dummy", :class => "form-control" %>
-  </div>
+    <td class = "input-group">
+        <%= f.text_field :username, :id => "username", :size => "20",:maxlength => "15", :class => ".username form-control"%>
+        <span class="input-group-btn">
+          <button type = "button" id= "ajax-button" class = "ajax-button btn btn-xs btn-primary" > ? </button>
+        </span>
+      <div class = "underscore-ajax"> </div>
+    </td>
 
-  <div class = "password line2">
-    <label for="ipaddress">Password</label>
-    <%= f.text_field :password, placeholder: "PASSWORD",:id => "password", :class => "form-control" %>
-  </div>
+    <td>
+      <%= f.text_field :name, :id => "name",:maxlength => "20", :class => "form-control"  %>
+    </td>
 
-  <div class="email line2">
-    <label for="email">Email</label>
-    <%= f.text_field :email, placeholder: "EMAIL", :id => "email", :class => "form-control" %>
-  </div>
+    <td>
+      <%= f.text_field :bio,:id=> "bio",:size => "20",:maxlength =>"160", :class => "form-control"  %>
+    </td>
 
-  <hr>
+    <td>
+      <%= f.text_field :location,:id => "location", :class => "form-control"  %>
+    </td>
+    <td>
+      <%= f.text_field :website,:id=> "website", :class => "form-control"  %>
+    </td>
+    <td class ="input-group">
+      <div class="input-group">
+        <%= f.text_field :profile_img, :id =>"profile_img",:size => "10", :class => "form-control"  %>
+        <div class="input-group-btn">
+          <button type="button" id = "image-dropdown" class="btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+          <ul class="dropdown-menu dropdown-menu-right" id="images">
 
-  <div class="name line3">
-    <%= f.text_field :name, placeholder: "TWITTER NAME",:maxlength => 15 %>
-  </div>
-  <div class = "username line3">
-  <label for="username">New Username</label>
-  <div class="input-group">
-    <%= f.text_field :username, placeholder: "NEW USERNAME", :id => "username", :class => "form-control"%>
-    <span class="input-group-btn">
-    <button type = "button" id= "ajax-button" class = "btn btn-default btn-primary" >SEARCH</button>
-    </span>
-  </div>
-  </div>
-  <div id = "underscore-ajax">
-  </div>
+          </ul>
+        </div>
+      </div>
+    </td>
 
 
-  <div class="bio">
-    <%= f.text_area :bio,:id=> "bio", size: "100x5", placeholder: "TWITTER BIO",:input_html => {:maxlength => 160} %>
-  </div>
-
-  <div class="location line5">
-    <%= f.text_field :location, placeholder: "LOCATION" %>
-  </div>
-  <div class="website line5">
-    <%= f.text_field :website, placeholder: "WEBSITE" %>
-  </div>
-  <br>
-
-  <div class="prof line6">
-    <%= f.label :profile_img %><br>
-    <%= f.text_field :profile_img %>
-  </div>
-  <div class="header line6">
-    <%= f.label :header_img %><br>
-    <%= f.text_field :header_img %>
-  </div>
-  <br>
-  <br>
-  <div class="actions">
-    <%= f.submit 'SUBMIT', :class => "btn btn-primary", :id =>"submit" %>
-  </div>
-<% end %>
-
+    <td>
+      <%= f.text_field :header_img, :id => "header_img", :class => "form-control"  %>
+    </td>
+    <td>
+       <button type = "button" id= "save" class = " save btn btn-primary disabled" >Save </button>
+    </td>
+  <% end %>

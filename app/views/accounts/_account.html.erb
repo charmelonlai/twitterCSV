@@ -1,0 +1,27 @@
+<tr>
+  <td class = "account-td"><div class = "scrollable"><%= check_box_tag :export, 'yes', true %></div></td>
+  <td class = "account-td" style= "max-width:20px"><div class = "scrollable"><%= account.ipaddress %></div></td>
+  <td class = "account-td" style= "max-width:20px"><div class = "scrollable"><%= account.dummy %></div></td>
+  <td class = "account-td" style= "max-width:20px"><div class = "scrollable"><%= account.password %></div></td>
+  <td class = "account-td" style= "max-width:20px"><div class = "scrollable"><%= account.email %></div></td>
+  <td class = "account-td" style= "min-width:60px"><div class = "scrollable"><%= account.username %></div></td>
+  <td class = "account-td" style= "max-width:20px"><div class = "scrollable"><%= account.name %></div></td>
+  <td class = "account-td" style= "min-width:80px"><div class = "scrollable"><%= account.bio %></div></td>
+  <td class = "account-td" style= "max-width:20px"><div class = "scrollable"><%= account.location %></div></td>
+  <td class = "account-td" style= "max-width:20px"><div class = "scrollable"><%= account.website %></div></td>
+  <td class = "account-td" style= "max-width:20px"><div class = "scrollable"><%= account.profile_img %></div></td>
+  <td class = "account-td" style= "max-width:20px"><div class = "scrollable"><%= account.header_img %></div></td>
+
+  <td class = "account-td"><%= link_to "Edit", edit_account_path(account),:class => "btn btn-sm btn-warning", :remote => true, "data-toggle" => "modal", "data-target" => "#modalwindow#{account.id.to_s}" %>
+  <td class = "account-td"><%= link_to 'Delete', account, :class => "btn btn-sm btn-danger", method: :delete %></td>
+</tr>
+
+  <div id="modalwindow<%=account.id.to_s%>" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= render :partial => 'edit',:locals => {:account => account} %>
+        </div>
+      </div>
+    </div>
+  </div>

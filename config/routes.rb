@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'accounts#index'
   get "/username-available" => "accounts#username_available"
   get "/underscorifier" => "accounts#underscorifier"
+  get "/destroyall" => "accounts#destroy_all_accs"
+  get "/imagesearch" => "accounts#image_search"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

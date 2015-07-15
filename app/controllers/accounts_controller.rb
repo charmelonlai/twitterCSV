@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
-  helper_method :username_available, :underscorifier
+  helper_method :username_available, :underscorifier, :destroy_all_accs, :image_search
   require 'csv'
   require 'omniauth'
 
@@ -10,6 +10,7 @@ class AccountsController < ApplicationController
     @accounts = Account.all
     respond_to do |format|
       format.html 
+      format.json
       format.csv do
         headers['Content-Disposition'] = "attachment; filename=\"user-list\""
         headers['Content-Type'] ||= 'text/csv'
@@ -29,16 +30,16 @@ class AccountsController < ApplicationController
   def username_available
     username = params[:username]
     if username
-      if username.length > 15 or twitter_client.user(username)
-        data = {:message => "× NOT AVAILABLE"}
+      if username.length > 15 or username.length < 1 or username.match(/\s/) or twitter_client.user(username)
+        data = {:message => "×"}
         render :json => data
       end
     end
   rescue Twitter::Error::NotFound
-    data = {:message => "✓ AVAILABLE"}
+    data = {:message => "✓"}
     render :json => data
   rescue Twitter::Error::Forbidden
-    data = {:message => "× NOT AVAILABLE"}
+    data = {:message => "×"}
     render :json => data
   end
 
@@ -80,17 +81,24 @@ class AccountsController < ApplicationController
     end
   end
 
+  def image_search
+    username = params[:username]
+    GoogleAjax.referrer = "www.twitterusersearch.com"
+    GoogleAjax.api_key = "AIzaSyCS53LQcE3Xtbe85NlcaOFzok_qGildrDc"
+    data = Hash.new
+    data = GoogleAjax::Search.images(username, {num: 8})
+    data = data.fetch(:results)
+    render :json => data
+  end
+
   # GET /accounts/new
   def new
-    #@account = Account.update_from_user_hash(auth_hash)
-    session[:user_id]= @account.id
-    #if @account.save
-      #@account.twitter.update_profile(:name => params[:username], :url => params[:website], :location => params[:location], :description =>params[:bio])
-    #end
+    @account = Account.new
   end
 
   # GET /accounts/1/edit
   def edit
+    @account = Account.find(params[:id])
   end
 
   # POST /accounts
@@ -100,11 +108,13 @@ class AccountsController < ApplicationController
       #@account.user_id = current_account.id
       respond_to do |format|
         if @account.save
-          format.html { redirect_to "/", notice: 'Account was successfully created.' }
-          format.json { render :index, status: :created, location: @account }
+          format.html { redirect_to root_url, notice: 'Account was successfully created.' }
+          format.json { render :json => @account.as_json}
+          format.js {}
         else
-          format.html { render :new }
-          format.json { render json: @account.errors, status: :unprocessable_entity }
+          format.html { render :action => :new}
+          format.json { render :json => @account.as_json, :status => :unprocessable_entity}
+          format.js {}
         end
       end
   end
@@ -112,6 +122,8 @@ class AccountsController < ApplicationController
   # PATCH/PUT /accounts/1
   # PATCH/PUT /accounts/1.json
   def update
+    @account = Account.find(params[:id])
+
       respond_to do |format|
         if @account.update(account_params)
           format.html { redirect_to "/", notice: 'Account was successfully updated.' }
@@ -129,6 +141,14 @@ class AccountsController < ApplicationController
     @account.destroy
     respond_to do |format|
       format.html { redirect_to accounts_url, notice: 'Account was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def destroy_all_accs
+    Account.destroy_all
+    respond_to do |format|
+      format.html { redirect_to root_url, notice: 'Account was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
