@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ip</Data></Cell>
+        <Cell><Data ss:Type="String">twitter_login</Data></Cell>
+        <Cell><Data ss:Type="String">twitter_pass</Data></Cell>
+        <Cell><Data ss:Type="String">email</Data></Cell>
+        <Cell><Data ss:Type="String">twitter_username</Data></Cell>
+        <Cell><Data ss:Type="String">twitter_name</Data></Cell>
+        <Cell><Data ss:Type="String">bio</Data></Cell>
+        <Cell><Data ss:Type="String">location</Data></Cell>
+        <Cell><Data ss:Type="String">website</Data></Cell>
+        <Cell><Data ss:Type="String">profile image</Data></Cell>
+        <Cell><Data ss:Type="String">header image</Data></Cell>
+
+
+      </Row>
+    <% @accounts.each do |account| %>
+      <Row>
+        [account.ipaddress,account.dummy, account.password, account.email, account.username, account.name, account.bio, account.location, account.website, account.profile_img, account.header_img]
+        <Cell><Data ss:Type="String"><%= account.ipaddress %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.dummy %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.password %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.email %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.username %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.bio %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.location %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.website %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.profile_img %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= account.header_img %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
