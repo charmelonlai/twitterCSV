@@ -1,62 +1,102 @@
 
-  <%= form_for Account.new, :id => "accountform" do |f| %>
-    <td>
-    </td>
-    <td>
-      <%= f.text_field :ipaddress, :id => "ipaddress",:size => "5", :class => "form-control" %>
-    </td>
-   
-    <td>
-      <%= f.text_field :dummy, :id => "dummy",:size => "10", :class => "form-control" %>
-    </td>
+  <div class = "row">
+    <div class="firstline col-xs-1">
+      IPAddress
+    </div>
+    <div class="firstline col-xs-1">
+      Dummy
+    </div>
+    <div class="firstline col-xs-1">
+      Password
+    </div>
+    <div class="firstline col-xs-1">
+      Email
+    </div>
+    <div class="firstline col-xs-1">
+      Username
+    </div>
+    <div class="firstline col-xs-1">
+      Name
+    </div>      
+    <div class="firstline col-xs-1">
+      Bio
+    </div>
+    <div class="firstline col-xs-1">
+      Location
+    </div>
+    <div class="firstline col-xs-1">
+      Website
+    </div>
+    <div class="firstline col-xs-1">
+      Profile Img
+    </div>
+      <div class="firstline col-xs-1">
+      Header Img
+    </div>
+  </div>
 
-    <td>
-      <%= f.text_field :password,:id => "password", :class => "form-control" %>
-    </td>
 
-    <td>
-      <%= f.text_field :email, :id => "email", :size => "10", :class => "form-control" %>
-    </td>
+<% (1..5).each do |i| %>
+<div class = "row">
+<%= form_for Account.new, :html => {:id => "accountform#{i.to_s}"} do |f| %>
 
-    <td class = "input-group">
-        <%= f.text_field :username, :id => "username", :size => "20",:maxlength => "15", :class => ".username form-control"%>
-        <span class="input-group-btn">
-          <button type = "button" id= "ajax-button" class = "ajax-button btn btn-xs btn-primary" > ? </button>
-        </span>
-      <div class = "underscore-ajax"> </div>
-    </td>
+  <div class="firstline col-xs-1">
+    <%= f.text_field :ipaddress, :id => "ipaddress#{i.to_s}", :class => "ipaddress form-control input-sm" %>
+  </div>
 
-    <td>
-      <%= f.text_field :name, :id => "name",:maxlength => "20", :class => "form-control"  %>
-    </td>
+  <div class="firstline col-xs-1">
+    <%= f.text_field :dummy, :id => "dummy#{i.to_s}", :class => "dummy form-control input-sm" %>
+  </div>
 
-    <td>
-      <%= f.text_field :bio,:id=> "bio",:size => "20",:maxlength =>"160", :class => "form-control"  %>
-    </td>
+  <div class="firstline col-xs-1">
+    <%= f.text_field :password,:id => "password#{i.to_s}", :class => "password form-control input-sm" %>
+  </div>
 
-    <td>
-      <%= f.text_field :location,:id => "location", :class => "form-control"  %>
-    </td>
-    <td>
-      <%= f.text_field :website,:id=> "website", :class => "form-control"  %>
-    </td>
-    <td class ="input-group">
-      <div class="input-group">
-        <%= f.text_field :profile_img, :id =>"profile_img",:size => "10", :class => "form-control"  %>
-        <div class="input-group-btn">
-          <button type="button" id = "image-dropdown" class="btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
-          <ul class="dropdown-menu dropdown-menu-right" id="images">
+  <div class="firstline col-xs-1">
+    <%= f.text_field :email, :id => "email#{i.to_s}", :class => "email form-control input-sm" %>
+  </div>
+  <div class = "firstline col-xs-1">
+    <div class = "input-group">
+      <%= f.text_field :username, :id => "username#{i.to_s}", :class => "username form-control input-sm",:maxlength => "15"%>
+      <span class="input-group-btn">
+        <button type = "button" class = "ajax-button btn btn-sm btn-primary" > ? </button>
+      </span>
+    </div>
+  </div>
 
-          </ul>
-        </div>
+  <div class="firstline col-xs-1">
+    <%= f.text_field :name, :id => "name#{i.to_s}", :class => "name form-control input-sm",:maxlength => "20"  %>
+  </div>
+
+  <div class="firstline col-xs-1">
+    <%= f.text_field :bio,:id=> "bio#{i.to_s}", :class => "bio form-control input-sm",:maxlength => "160"  %>
+  </div>
+
+  <div class="firstline col-xs-1">
+    <%= f.text_field :location,:id => "location#{i.to_s}", :class => "location form-control input-sm"  %>
+  </div>
+  <div class="firstline col-xs-1">
+    <%= f.text_field :website,:id=> "website#{i.to_s}", :class => "website form-control input-sm"  %>
+  </div>
+  <div class="firstline col-xs-1">
+    <div class = "input-group">
+      <%= f.text_field :profile_img, :id =>"profile_img#{i.to_s}", :class => "profile_img form-control input-sm"  %>
+      <div class="input-group-btn">
+        <button type="button" id = "image-dropdown#{i.to_s}" class="image-dropdown btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right images" >
+
+        </ul>
       </div>
-    </td>
+    </div>
+  </div>
 
 
-    <td>
-      <%= f.text_field :header_img, :id => "header_img", :class => "form-control"  %>
-    </td>
-    <td>
-       <button type = "button" id= "save" class = " save btn btn-primary disabled" >Save </button>
-    </td>
-  <% end %>
+  <div class="firstline col-xs-1">
+    <%= f.text_field :header_img, :id => "header_img#{i.to_s}", :class => "header_img form-control input-sm"  %>
+  </div>
+  <div class="firstline col-xs-1">
+   <button type = "button" id = "save#{i.to_s}" class = "save btn-sm btn-primary disabled" >Save </button>
+ </div>
+ <% end %>
+</div>
+<% end %>

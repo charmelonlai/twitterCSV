@@ -27,17 +27,18 @@
 
   <div class="name line3">
     <%= f.label :name, "Name"  %>
-    <%= f.text_field :name, placeholder: "TWITTER NAME", :class => "form-control",:input_html => {:maxlength => 15} %>
+    <%= f.text_field :name, placeholder: "TWITTER NAME", :class => "form-control",:maxlength => "20" %>
   </div>
   <div class = "username line3">
   <%= f.label :username, "Username"  %>
   <div class="input-group">
-    <%= f.text_field :username, placeholder: "NEW USERNAME", :class => "form-control", :id => "edit-username", :class => "form-control"%>
+    <%= f.text_field :username, placeholder: "NEW USERNAME", :class => "form-control username", :class => "form-control", :maxlength => "15"%>
     <span class="input-group-btn">
     <button type = "button" id= "edit-ajax-button" class = "ajax-button btn btn-default btn-primary" >SEARCH</button>
     </span>
   </div>
   </div>
+  <div class = "underscore-ajax"> </div>
 
 
   <div class="line4">

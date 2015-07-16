@@ -1,60 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<body>
-  <h3>twitter accounts.</h3>
-  <br>
-  <div class = "table">
-    <table class= "table table-striped table-condensed" id = "account-table">
-      <thead>
-        <tr>
-          <th>Export</th>
-          <th>IP</th>
-          <th>Dummy</th>
-          <th>Password</th>
-          <th>Email</th>
-          <th>Username</th>
-          <th>Name</th>
-          <th>Bio</th>
-          <th>Location</th>
-          <th>Website</th>
-          <th>Profile Image</th>
-          <th>Header Image</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+<h3>twitter accounts.</h3>
+  <table class= "table table-striped" id = "account-table">
+    <thead>
+    <% if @accounts %>
+      <tr>
+        <th>Exp</th>
+        <th>IP</th>
+        <th>Dummy</th>
+        <th>Password</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Bio</th>
+        <th>Location</th>
+        <th>Website</th>
+        <th>Profile Image</th>
+        <th>Header Image</th>
+        <th colspan="3"></th>
+      </tr>
+      <% end %>
+    </thead>
 
-      <tbody>
-        <% @accounts.each do |account| %>
-            <%= render :partial => 'account', :locals => {:account => account}%> 
-        <% end %>
-        <%= render :partial => 'new' %>
-      </tbody>
-    </table>
-  </div>
+    <tbody>
+      <% @accounts.each do |account| %>
+      <%= render :partial => 'account', :locals => {:account => account}%> 
+      <% end %>
+    </tbody>
+  </table>
+      <%= render :partial => 'new' %>
 
-  <br>
+<br>
 
-  <div class = "add-button">
-    <button type = "button" id= "add" class = " add btn btn-xs btn-info" >+ Add New Account</button>
-    <%if false %><%= link_to "+ Add New Account", new_account_path, :class => "btn btn-sm btn-info", :remote => true, "data-toggle" => "modal", "data-target" => "#modalwindow" %> 
-    <%= link_to "+ Add New Account", "/auth/twitter", :class => "btn btn-sm btn-info" %> <% end %>
-  </div>
-
-  <!-- Modal -->
-  <div id="modalwindow" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-body">
-          <%= render 'new' %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <br>
-
-  <div class = "buttons">
-    <%= link_to 'Clear All', destroyall_path, :class => "btn btn-xs btn-info" %>
-    <%= link_to 'Export To CSV', accounts_path(format: :csv),:class => "btn btn-xs btn-info"  %>
-  </div>
-</body>
+<div class = "buttons">
+  <%= link_to 'Clear All', destroyall_path, :class => "btn btn-sm btn-info", data: {confirm: "Confirm: Delete table?"} %>
+  <%= link_to 'Export To CSV', accounts_path(format: :csv),:class => "btn btn-sm btn-info"  %>
+</div>

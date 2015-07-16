@@ -2,7 +2,6 @@ class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
   helper_method :username_available, :underscorifier, :destroy_all_accs, :image_search
   require 'csv'
-  require 'omniauth'
 
   # GET /accounts
   # GET /accounts.json
