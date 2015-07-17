@@ -10,8 +10,7 @@ class AccountsController < ApplicationController
     respond_to do |format|
       format.html 
       format.json
-      format.csv { send_data @accounts.to_csv }
-      format.xls # { send_data @accounts.to_csv(col_sep: "\t") }
+      format.csv { send_data @accounts.to_csv, filename: "accounts-#{Date.today}.csv" }
     end
   end
 
@@ -152,10 +151,6 @@ class AccountsController < ApplicationController
 
   private
 
-    def auth_hash
-      request.env['omniauth.auth']
-    end
-
     # Use callbacks to share common setup or constraints between actions.
     def set_account
       @account = Account.find(params[:id])
@@ -163,6 +158,6 @@ class AccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
-      params.require(:account).permit(:ipaddress, :dummy, :username, :name, :password, :email, :org, :bio, :location, :website, :profile_img, :header_img)
+      params.require(:account).permit(:ipaddress, :dummy, :username, :name, :password, :email, :org, :bio, :location, :website, :profile_img, :header_img, :export)
     end
 end

@@ -1,5 +1,5 @@
 <tr>
-  <td class = "account-td"><div class = "scrollable"><%= check_box_tag :export, 'yes', true %></div></td>
+  <td class = "account-td"><div class = "scrollable"><%= hidden_field_tag :export, '' %><%= check_box_tag :export, 1, checked = true %></div></td>
   <td class = "account-td" style= "max-width:10px"><div class = "scrollable"><%= account.ipaddress %></div></td>
   <td class = "account-td" style= "max-width:15px"><div class = "scrollable"><%= account.dummy %></div></td>
   <td class = "account-td" style= "max-width:15px"><div class = "scrollable"><%= account.password %></div></td>

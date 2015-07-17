@@ -1,10 +1,14 @@
 class Account < ActiveRecord::Base
-def self.to_csv(options = {})
-  CSV.generate(options) do |csv|
-    csv << column_names
-    all.each do |product|
-      csv << product.attributes.values_at(*column_names)
+  def self.to_csv
+    attributes = %w{ip twitter_login twitter_pass email twitter_username twitter_name bio location website profile_img header_img}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |account|
+        csv << [account.ipaddress, account.dummy, account.password, account.email,account.username,account.name,account.bio,account.location,account.website,account.profile_img,account.header_img]
+      end
     end
   end
-end
+
 end
