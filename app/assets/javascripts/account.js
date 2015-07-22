@@ -69,8 +69,9 @@ $(document).ready(function() {
 			success: function(data) {
 				$(self).closest('form').find('.images').empty();
 				$.each(data, function(index, element){
-	  				$(self).closest('form').find('.images').append('<li class = "img_li"><img src='+element.url+' style="height:75px;width:75px;margin-bottom:1px;margin-left:5%"></li>');
-	  				$('.img_li').click(function(){
+					var $elem = $("<li>").addClass("img_li").html('<img src='+element.url+' style="height:75px;width:75px;margin-bottom:1px;margin-left:5%">');
+	  				$(self).closest('form').find('.images').append($elem);
+	  				$elem.click(function(){
 	  					$(self).closest('form').find(".profile_img").val(element.url);
 	  				});
 	  				console.log(element.url);
